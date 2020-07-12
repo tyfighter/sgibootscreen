@@ -1,0 +1,14 @@
+.vs
+*~
+*#
+*.vcxproj.user
+*.VC.db
+*.o
+*.obj
+*.log
+*.idb
+*.pdb
+*.tlog
+*.lastbuildstate
+Debug
+Release

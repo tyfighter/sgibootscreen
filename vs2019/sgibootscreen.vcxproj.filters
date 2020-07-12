@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\fonts.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\colors.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\bootscreen.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\bs_priv.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\types.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\main.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sgifont.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ncenb18.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\unkfont.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ip19.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\bootscreen.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\helvr10.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ip20.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ip24.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ip26.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ip30.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ip32.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ip35.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\hcfont.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vgxfont.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\venice.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sgcslogo.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scrb18.c">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
