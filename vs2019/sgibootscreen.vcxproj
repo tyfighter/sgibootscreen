@@ -170,8 +170,10 @@
     <ClCompile Include="..\src\helvr10.c" />
     <ClCompile Include="..\src\ip19.c" />
     <ClCompile Include="..\src\ip20.c" />
+    <ClCompile Include="..\src\ip22.c" />
     <ClCompile Include="..\src\ip24.c" />
     <ClCompile Include="..\src\ip26.c" />
+    <ClCompile Include="..\src\ip28.c" />
     <ClCompile Include="..\src\ip30.c" />
     <ClCompile Include="..\src\ip32.c" />
     <ClCompile Include="..\src\ip35.c" />

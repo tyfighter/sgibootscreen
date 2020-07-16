@@ -21,6 +21,12 @@ extern const u8 indigologo[];
 
 
 /*
+ * ip22.c
+ */
+extern const u8 indigo2logo[];
+
+
+/*
  * ip24.c
  */
 extern const u8 indylogo[];
@@ -29,8 +35,15 @@ extern const u8 indylogo[];
 /*
  * ip26.c
  */
-extern const u8 indigo2logo[];
-extern const u8 powerlogo[];
+extern const u8 powerindigo2logo[];
+extern const u8 powerindigo2shadow[];
+
+
+/*
+ * ip28.c
+ */
+extern const u8 indigo2r10klogo[];
+extern const u8 indigo2r10kshadow[];
 
 
 /*
@@ -53,6 +66,20 @@ extern const u8 infiniteperformancelogo[];
 extern const u8 infiniterealitylogo[];
 extern const u8 tezrologo[];
 extern const u8 ultimatevisionlogo[];
+
+
+/*
+ * sgcslogo.c
+ */
+extern const u8 sgcslogo[];
+
+
+/*
+ * venice.c
+ */
+extern const u8 realityenginelogo_red[];
+extern const u8 realityenginelogo_green[];
+extern const u8 realityenginelogo_blue[];
 
 
 /* Boot screen type
@@ -86,7 +113,7 @@ extern const u8 ultimatevisionlogo[];
 
 
 /* Logo shadow offset
- *   A couple of systems adjust the position of the
+ *   A few of systems adjust the position of the
  *   logo shadow.
  */
 #define BOOTSCREEN_LOGO_SHADOW_OFFSET         0x60
@@ -130,6 +157,17 @@ static const bootscreen_new_t bs_ip20indigo = {
     512, 256
 };
 
+const bootscreen_new_t bs_ip22indigo2 = {
+    {   BOOTSCREEN_TYPE_NEW |
+        BOOTSCREEN_SGSTR_SGCS |
+        BOOTSCREEN_SGSTR_COLOR_YELLOW |
+        BOOTSCREEN_LOGO_SHADOW_OFFSET_0_0,
+        1280, 1024 },
+    indigo2logo,
+    indigo2logo,
+    918, 150
+};
+
 static const bootscreen_new_t bs_ip24indy = {
     {   BOOTSCREEN_TYPE_NEW |
         BOOTSCREEN_SGSTR_SGCS |
@@ -141,15 +179,25 @@ static const bootscreen_new_t bs_ip24indy = {
     576, 256
 };
 
-
-const bootscreen_new_t bs_ip26indigo2 = {
+const bootscreen_new_t bs_ip26powerindigo2 = {
     {   BOOTSCREEN_TYPE_NEW |
         BOOTSCREEN_SGSTR_SGCS |
         BOOTSCREEN_SGSTR_COLOR_YELLOW |
         BOOTSCREEN_LOGO_SHADOW_OFFSET_N10_14,
         1280, 1024 },
-    indigo2logo,
-    powerlogo,
+    powerindigo2logo,
+    powerindigo2shadow,
+    918, 150
+};
+
+const bootscreen_new_t bs_ip28indigo2r10k = {
+    {   BOOTSCREEN_TYPE_NEW |
+        BOOTSCREEN_SGSTR_SGCS |
+        BOOTSCREEN_SGSTR_COLOR_YELLOW |
+        BOOTSCREEN_LOGO_SHADOW_OFFSET_N10_14,
+        1280, 1024 },
+    indigo2r10klogo,
+    indigo2r10kshadow,
     918, 150
 };
 
@@ -257,8 +305,10 @@ static const bootscreen_t * const bootscreens[] = {
     &bs_realityengine,
     &bs_ip19reality.base,
     &bs_ip20indigo.base,
+    &bs_ip22indigo2.base,
     &bs_ip24indy.base,
-    &bs_ip26indigo2.base,
+    &bs_ip26powerindigo2.base,
+    &bs_ip28indigo2r10k.base,
     &bs_ip30octane.base,
     &bs_ip32o2.base,
     &bs_ip35fuel.base,
@@ -579,7 +629,7 @@ static void draw_gammacorrection(float gamma)
  * draw_background
  *   Draw a gradient at position (x,y) of size(w,h)
  *   using the background gradient region of the
- *   colormap.  Draws the background for newer
+ *   color map.  Draws the background for newer
  *   systems.
  */
 static void draw_background(u16 x, u16 y, u16 w, u16 h)
@@ -649,10 +699,6 @@ static void draw_string(const u8 *str, const font_t *font)
  */
 static void draw_logo_SiliconGraphicsComputerSystems(u16 x, u16 y)
 {
-/*
- * sgcslogo.c
- */
-extern const u8 sgcslogo[];
     const u8 *sgcslogo_ptr = sgcslogo;
     u8 length;
     draw_box_start(x, y, 372, 93);
@@ -849,12 +895,6 @@ static u8 re_decomp(re_decomp_t *dc)
  */
 static void draw_logo_RealityEngine(const u16 x, const u16 y)
 {
-/*
- * venice.c
- */
-extern const u8 realityenginelogo_red[];
-extern const u8 realityenginelogo_green[];
-extern const u8 realityenginelogo_blue[];
     re_decomp_t r = { realityenginelogo_red, 0, 0 };
     re_decomp_t g = { realityenginelogo_green, 0, 0 };
     re_decomp_t b = { realityenginelogo_blue, 0, 0 };
@@ -1141,18 +1181,18 @@ inline static void draw_write_bmp_header(FILE *fp)
 {
     const bmp_header_t bmp_header = {
         {   (((u16)'B') | (((u16)'M') << 8)),
-            sizeof(bmp_header_t) + draw.size,
+            (unsigned int)(sizeof(bmp_header_t) + draw.size),
             0,
             0,
             sizeof(bmp_header_t)
         },
-        {   sizeof(bmp_info_header_t),
+        {   (unsigned int)sizeof(bmp_info_header_t),
             draw.width,
             draw.height,
             1,
             24,
             0,
-            draw.size,
+            (unsigned int)draw.size,
             2835,
             2835,
             0,

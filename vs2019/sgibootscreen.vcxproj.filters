@@ -82,5 +82,11 @@
     <ClCompile Include="..\src\scrb18.c">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\ip22.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ip28.c">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
